@@ -35,7 +35,7 @@ class GetActivityLog:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infa.log.info("Fetched the all the Activity log from IICS")
+        infapy.log.info("Fetched the all the Activity log from IICS")
         data = response.json()
         return data
 
