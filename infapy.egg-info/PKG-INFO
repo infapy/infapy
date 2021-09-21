@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: infapy
-Version: 1.0.2
+Version: 1.0.5.2
 Summary: Automation Tool for informatica Cloud
 Home-page: UNKNOWN
 Author: Prashanth
@@ -19,7 +19,7 @@ infapy is a Python library for automating with informatica cloud.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install infapy.
 
 ```bash
 pip install infapy
@@ -30,13 +30,19 @@ pip install infapy
 ```python
 import infapy
 
+# Create a File Logger
+infapy.setFileLogger(name="myScriptName",level="DEBUG")
+
 # returns 'words'
 # below command to use the default profile
 infaHandler=infapy.connect()
 
+# Or use a profile to connect
+infaHandler=infapy.connect(profile="DEV")
+
 # Example to use the v2 API:
 v2=infaHandler.v2()
-v2.getAllActivityLog()
+v2.getActivityLog().getAllActivityLog()
 
 ```
 

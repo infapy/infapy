@@ -59,6 +59,7 @@ log.addHandler(NullHandler())
 
 def setFileLogger(name="infapy",filepath=None,level=None,formatString=None):
     filename=""
+    global log
     if not formatString:
         formatString='%(asctime)s  %(name)s  %(levelname)s: %(message)s'
     if not level:
@@ -76,12 +77,14 @@ def setFileLogger(name="infapy",filepath=None,level=None,formatString=None):
     fh.setFormatter(formatter)
     logger.addHandler(fh)
     log = logger
+    # log = logging.getLogger(name)
     log.info("New instance of infapy started from hostname: " + platform.node())
     log.info("Host OS: " + sysOS)
     log.info("INFAPY Root Path: " + infaPath)
     
 
 def setStreamLogger(name="infapy",level=None,formatString=None):
+    global log
     if not formatString:
         formatString='%(asctime)s  %(name)s  %(levelname)s: %(message)s'
     if not level:

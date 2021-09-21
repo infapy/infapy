@@ -1,4 +1,5 @@
 LICENSE
+MANIFEST.in
 README.md
 setup.py
 infapy/__init__.py
@@ -9,3 +10,7 @@ infapy.egg-info/SOURCES.txt
 infapy.egg-info/dependency_links.txt
 infapy.egg-info/requires.txt
 infapy.egg-info/top_level.txt
+infapy/cdi/__init__.py
+infapy/v2/__init__.py
+infapy/v2/getActivityLog.py
+infapy/v3/__init__.py
