@@ -3,21 +3,25 @@ import infapy
 
 class V2():
     def __init__(self,v2,v2BaseURL,v2icSessionID):
-        print("Created V2 Class")
+        """This class is used to leverage the IICS V2 APIs
+
+        Args:
+            v2 (json): login response of v2 login API
+            v2BaseURL (string): The base url which we get from the v2 login API
+            v2icSessionID (string): The icSessionID from the v2 Login API
+        """
+        infapy.log.info("created a v2 class object successfully")
+        infapy.log.info("v2BaseURL: " + v2BaseURL)
         self._v2=v2
         self._v2BaseURL = v2BaseURL
         self._v2icSessionID = v2icSessionID
         
-    def getAllActivityLog(self):
-        url=self._v2BaseURL + "/api/v2/activity/activityLog"
-        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        # The below format is for post
-        # bodyV3={"username": userName,"password": password}
-        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
-        try:
-            response = re.get(url=url, headers=headers)
-        except Exception as e:
-            infapy.log.exception(e)
-            raise
-        data = response.json()
-        return data
+    def getActivityLog(self):
+        """This function returns an object of getActivityLog
+        which has multiple sub methods to fetch the activity log
+
+        Returns:
+            class object: v2.getActivityLog.GetActivityLog
+        """
+        from infapy.v2.getActivityLog import GetActivityLog
+        return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
