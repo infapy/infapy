@@ -40,11 +40,12 @@ class CredentialFileReadError(InfapyError):
         
         InfapyError.__init__(self,msg)
 
-class ClassInitializationFailure(InfapyError):
-    def __init__(self, region):
+class LimitExceededError(InfapyError):
+    def __init__(self, limit):
         
         msg = (
-            "Invalid arguments caused class initialization failure."
+            "Limit provided exceeds max allowed: \n"  
+            "Value Currently Provided: " + str(limit)
         )
         
         InfapyError.__init__(self,msg)

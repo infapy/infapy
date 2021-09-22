@@ -1,2 +1,4 @@
 *.whl
 *.tar.gz
+infapy.log
+*.log
