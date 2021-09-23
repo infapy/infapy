@@ -43,7 +43,7 @@ class V3():
             InvalidArgumentsError: if required arguments are not passed
 
         Returns:
-            json: lookup of object
+            json: lookup of objects in iics v3.lookup()
         """
         infapy.log.info("Performing lookup operation")
         idProvidedFlag=True
