@@ -92,4 +92,8 @@ class V3():
 
     def users(self):
         from infapy.v3.users import Users
-        return Users(V3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
+        return Users(v3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
+
+    def userGroups(self):
+        from infapy.v3.userGroups import UserGroups
+        return UserGroups(self._v3, self._v3BaseURL, self._v3SessionID)

@@ -1,24 +1,24 @@
 import infapy
 import requests as re
-from infapy.exceptions import InvalidUserDetailsProvided
+from infapy.exceptions import InvalidArgumentsError
 
-class Users:
-    def __init__(self,v3,v3BaseURL,v3SessionID):
+class UserGroups:
+    def __init__(self,v3, v3BaseURL, v3SessionID):
         self._v3 = v3
         self._v3BaseURL = v3BaseURL
         self._v3SessionID = v3SessionID
-    
-    def getAllUsers(self):
-        """getAllUsers can be used to fetch all the user details in you iics org
+
+    def getAllUserGroups(self):
+        """Method for fetching all the user groups in IICS
 
         Returns:
-            infaUserData: <list of dict>
+            list of dict: List of all user groups in IICS
         """
-        infapy.log.info("getting all user details. Processing request....")
-        url=self._v3BaseURL + "/public/core/v3/users"
+        infapy.log.info("getting all user groups. Processing request....")
+        url=self._v3BaseURL + "/public/core/v3/userGroups"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
-        infapy.log.info("get users API URL - " + url)
+        infapy.log.info("get all user groups API URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
 
@@ -28,25 +28,30 @@ class Users:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Fetched the all the user details from IICS")
+        infapy.log.info("Fetched the all the user group details from IICS")
         data = response.json()
-        infapy.log.info("getAllUsers() called successfully. Processing completed")
+        infapy.log.info("getAllUserGroups() called successfully. Processing completed")
         return data
 
-    def getUserByID(self,id):
-        """We can use this method to get the user details of a particular user
+    
+
+    def getUserGroupByName(self,userGroupName):
+        """Method for fetching the user group details
+        by name in IICS
 
         Args:
-            id (string): you can use the user id to get the details
+            userGroupName (string): name of the usergroup
 
         Returns:
-            json: infaUserDetails
+            dict: userGroup Details
         """
-        infapy.log.info("getting details of user id " + str(id) + " . Processing request....")
-        url=self._v3BaseURL + "/public/core/v3/users?q=userId=="+str(id)+"&limit=1&skip=0"
+        
+        infapy.log.info("getting the requested user group. Processing request....")
+        infapy.log.info("User Group Requested: " + str(userGroupName))
+        url=self._v3BaseURL + "/public/core/v3/userGroups?q=userGroupName==" + str(userGroupName)
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
-        infapy.log.info("get users API URL - " + url)
+        infapy.log.info("Requested user API URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
 
@@ -56,22 +61,22 @@ class Users:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Fetched the user details of user id: " + id + " from IICS")
+        infapy.log.info("Fetched the requesteduser group details from IICS")
         data = response.json()
-        infapy.log.info("getAllUsers() called successfully. Processing completed")
+        infapy.log.info("getUserGroupByName() called successfully. Processing completed")
         return data
 
-    def createNewUser(self,userProfileInJson):
-        infapy.log.info("Creating new user..")
-        infapy.log.info("User Profile provided: " + str(userProfileInJson))
+    def createNewUserGroup(self,userGroupJson):
+        infapy.log.info("Creating new user group..")
+        infapy.log.info("Creating User Group: " + str(userGroupJson))
 
-        url=self._v3BaseURL + "/public/core/v3/users"
+        url=self._v3BaseURL + "/public/core/v3/userGroups"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
-        body = userProfileInJson
+        body = userGroupJson
 
         infapy.log.info("get users API URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
-        infapy.log.info("Body: " + str(userProfileInJson))
+        infapy.log.info("Body: " + str(userGroupJson))
 
         try:
             response = re.post(url=url, json=body, headers=headers)
@@ -82,37 +87,45 @@ class Users:
                     infapy.log.error("please validate the json string and provide a valid json")
                     infapy.log.error("User Creation failed")
                     infapy.log.error(str(data))
-                    raise InvalidUserDetailsProvided
+                    raise InvalidArgumentsError(str(userGroupJson))
             except Exception as e:
                 infapy.log.exception(e)
                 raise
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Created New User Successfully")
-        infapy.log.info("createNewUser completed successfully..")
+        infapy.log.info("Created New User Group created Successfully")
+        infapy.log.info("createNewUserGroup completed successfully..")
     
         return data
 
-    def deleteUser(self,userID):
-        infapy.log.info("Deleting user id: " + str(userID))
+    
+    def deleteUserGroup(self,userGroupID):
+        """The function deletes the user group in informatica cloud
 
-        url=self._v3BaseURL + "/public/core/v3/users/" + str(userID)
+        Args:
+            userGroupID (string): User Group ID
+        """
+        infapy.log.info("Deleting user group with id: " + str(userGroupID))
+
+        url=self._v3BaseURL + "/public/core/v3/userGroups/" + str(userGroupID)
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
-        infapy.log.info("Delete User URL - " + url)
+        infapy.log.info("Delete User Groups URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
-        infapy.log.info("Body: There are no headers for this request" )
+        infapy.log.info("Body: There is no body for this request" )
 
         try:
             response = re.delete(url=url, headers=headers)
             # data = response.json()
             infapy.log.debug(str(response))
+            raise
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Delete user successfully")
+        infapy.log.info("Deleted user groupd successfully")
         # infapy.log.info(str(data))
-        infapy.log.info("deleteUser completed successfully..")
+        infapy.log.info("deleteUserGroup() completed successfully..")
     
         # return data
+
