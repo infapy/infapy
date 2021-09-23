@@ -121,3 +121,27 @@ class GetAgent:
         infapy.log.info("Fetched Agent Details for Agent Name: " + name)
         data = response.json()
         return data
+    
+    def getAllAgentServiceDetails(self):
+        """getAllAgentServiceDetails returns details for enabled services on all Agents in the Org.
+
+        Returns:
+            List of dict: <Agent Service Details in dict Format>
+        """
+        url=self._v2BaseURL + "/api/v2/agent/details"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("getAllAgentDetails URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.get(url=url, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Fetched Agent Service Details for All Agents in the Org")
+        data = response.json()
+        return data
