@@ -29,3 +29,13 @@ class V2():
         """
         from infapy.v2.getActivityLog import GetActivityLog
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
+    def getActivityMonitor(self):
+        """This function returns an object of getActivityLog
+        which has multiple sub methods to fetch the activity log
+
+        Returns:
+            class object: v2.getActivityLog.GetActivityLog
+        """
+        from infapy.v2.getActivityMonitor import GetActivityMonitor
+        return GetActivityMonitor(self._v2,self._v2BaseURL,self._v2icSessionID)

@@ -35,3 +35,7 @@ v2=infaHandler.v2()
 # print(ActivityLog.getSessionLog("0119Y4C1000000000QPJ","C:\\Users\\spani\\Downloads"))
 # print(ActivityLog.getSessionLog("0119Y4C1000000000QPJ","C:\\Users\\spani\\Downloads","s_mtt_0119Y40Z00000000001S"))
 # print(ActivityLog.getSessionLog("0119Y4C1000000000QPK","C:\\Users\\spani\\Downloads",itemId="2752306096",childItemId="2752306099"))
+
+ActivityMonitor=v2.getActivityMonitor()
+# print(ActivityMonitor.getActivityMonitorLog())
+# print(ActivityMonitor.getActivityMonitorLog("true"))
