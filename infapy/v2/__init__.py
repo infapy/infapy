@@ -29,3 +29,64 @@ class V2():
         """
         from infapy.v2.getActivityLog import GetActivityLog
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def getOrg(self):
+        """This function returns an object of getOrg
+        which has multiple sub methods to fetch the Org and Sub-org Details
+
+        Returns:
+            class object: v2.getOrg.GetOrg
+        """
+        from infapy.v2.getOrg import GetOrg
+        return GetOrg(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    # def updateOrg(self):
+    #     """This function returns an object of getOrg
+    #     which has multiple sub methods to Update the Org and Sub-org Details
+
+    #     Returns:
+    #         class object: v2.updateOrg.UpdateOrg
+    #     """
+    #     from infapy.v2.updateOrg import UpdateOrg
+    #     return UpdateOrg(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def getRuntimeEnvironment(self):
+        """This function returns an object of getRuntimeEnvironment
+        which has multiple sub methods to fetch the Details of Runtime Environments
+
+        Returns:
+            class object: v2.getRuntimeEnvironment.GetRuntimeEnvironment
+        """
+        from infapy.v2.getRuntimeEnvironment import GetRuntimeEnvironment
+        return GetRuntimeEnvironment(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
+    def getSchedule(self):
+        """This function returns an object of getSchedule
+        which has multiple sub methods to fetch the Details of Runtime Environments
+
+        Returns:
+            class object: v2.getRuntimeEnvironment.GetRuntimeEnvironment
+        """
+        from infapy.v2.getSchedule import GetSchedule
+        return GetSchedule(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def getServerTime(self):
+        """getServerTime returns all the activity logs from IICS in dict format
+
+        Returns:
+            List of dict: <Local Time of the IICS Server>
+        """
+        url=self._v2BaseURL + "/api/v2/server/serverTime"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("getServerTime URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        try:
+            response = re.get(url=url, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Fetched the Local Time of the IICS Server")
+        data = response.json()
+        return data
