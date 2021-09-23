@@ -59,3 +59,13 @@ class V2():
         """
         from infapy.v2.getAuditLog import GetAuditLog
         return GetAuditLog(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def jobControl(self):
+        """This function returns an object of jobControl
+        which has sub method to start/stop Jobs
+
+        Returns:
+            class object: v2.getAgent.JobControl
+        """
+        from infapy.v2.jobControl import JobControl
+        return JobControl(self._v2,self._v2BaseURL,self._v2icSessionID)

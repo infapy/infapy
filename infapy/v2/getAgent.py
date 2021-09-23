@@ -7,7 +7,7 @@ import json
 # print(infapy.log)
 class GetAgent:
     """This class is a handler for fetching
-    the Activity Monitor from IICS
+    the Agent Details from IICS
     """
     def __init__(self,v2,v2BaseURL,v2icSessionID):
         self._v2 = v2
