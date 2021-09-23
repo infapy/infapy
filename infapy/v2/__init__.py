@@ -49,3 +49,13 @@ class V2():
         """
         from infapy.v2.getAgent import GetAgent
         return GetAgent(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def getAuditLog(self):
+        """This function returns an object of getAuditLog
+        which has sub method to fetch audit logs for the org
+
+        Returns:
+            class object: v2.getAgent.GetAuditLog
+        """
+        from infapy.v2.getAuditLog import GetAuditLog
+        return GetAuditLog(self._v2,self._v2BaseURL,self._v2icSessionID)
