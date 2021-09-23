@@ -22,7 +22,7 @@ class GetActivityMonitor:
             details (str, optional): Returns log information for tasks, linear taskflows, and child objects if set to true. Defaults to "false", since it is IICS default.
 
         Returns:
-            List of dict: <Activity Log in dict Format>
+            List of dict: <Activity Monitor Log in dict Format>
         """
         
         url=self._v2BaseURL + "/api/v2/activity/activityMonitor?details=" + details

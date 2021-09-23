@@ -31,11 +31,21 @@ class V2():
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
     
     def getActivityMonitor(self):
-        """This function returns an object of getActivityLog
-        which has multiple sub methods to fetch the activity log
+        """This function returns an object of getActivityMonitor
+        which has sub method to fetch the activity log for running jobs
 
         Returns:
-            class object: v2.getActivityLog.GetActivityLog
+            class object: v2.getActivityMonitor.GetActivityMonitor
         """
         from infapy.v2.getActivityMonitor import GetActivityMonitor
         return GetActivityMonitor(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
+    def getAgent(self):
+        """This function returns an object of getAgent
+        which has multiple sub methods to fetch details for agents in the org
+
+        Returns:
+            class object: v2.getAgent.GetAgent
+        """
+        from infapy.v2.getAgent import GetAgent
+        return GetAgent(self._v2,self._v2BaseURL,self._v2icSessionID)
