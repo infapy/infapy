@@ -18,15 +18,17 @@ v3=infaHandler.v3()
 response = v3.userGroups().getAllUserGroups()
 # print(response)
 
-response = v3.userGroups().getUserGroupByName(userGroupName="INFA_ADMIN")
-print(response)
+# response = v3.userGroups().getUserGroupByName(userGroupName="INFA_ADMIN")
+# print(response)
 
-newUserGroup = {
-    "name" : "user_group_2",
-    "roles" : ["9aTuLGRQgHyjpftpLFj7Qg"],
-    "users" : ["42szaouMf0bg0yycPME0Up"]
-}
-response = v3.userGroups().createNewUserGroup(newUserGroup)
+# newUserGroup = {
+#     "name" : "user_group_2",
+#     "roles" : ["9aTuLGRQgHyjpftpLFj7Qg"],
+#     "users" : ["42szaouMf0bg0yycPME0Up"]
+# }
+# response = v3.userGroups().createNewUserGroup(newUserGroup)
+# print(response)
+response = v3.userGroups().deleteUserGroup(userGroupID="lmU6VcL89KQeoesayPISgD")
 print(response)
 
 
@@ -39,3 +41,4 @@ print(response)
 
 # response = v3.users().deleteUser(userID="2ZIIk0G34wIhYMCJn0pC6P")
 # print(response)
+

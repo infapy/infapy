@@ -33,8 +33,6 @@ class UserGroups:
         infapy.log.info("getAllUserGroups() called successfully. Processing completed")
         return data
 
-    
-
     def getUserGroupByName(self,userGroupName):
         """Method for fetching the user group details
         by name in IICS
@@ -67,6 +65,17 @@ class UserGroups:
         return data
 
     def createNewUserGroup(self,userGroupJson):
+        """You can use this method to create a new user group
+
+        Args:
+            userGroupJson (dict): please read the documentation
+
+        Raises:
+            InvalidArgumentsError: if invalid args are passed
+
+        Returns:
+            dict: user group created response
+        """
         infapy.log.info("Creating new user group..")
         infapy.log.info("Creating User Group: " + str(userGroupJson))
 
@@ -99,7 +108,6 @@ class UserGroups:
     
         return data
 
-    
     def deleteUserGroup(self,userGroupID):
         """The function deletes the user group in informatica cloud
 
@@ -119,7 +127,7 @@ class UserGroups:
             response = re.delete(url=url, headers=headers)
             # data = response.json()
             infapy.log.debug(str(response))
-            raise
+            # raise
         except Exception as e:
             infapy.log.exception(e)
             raise
@@ -127,5 +135,5 @@ class UserGroups:
         # infapy.log.info(str(data))
         infapy.log.info("deleteUserGroup() completed successfully..")
     
-        # return data
+        return response
 
