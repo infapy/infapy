@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup (
     name="infapy",                     # This is the name of the package
-    version="1.0.5.4",                        # The initial release version
+    version="1.0.5.5",                        # The initial release version
     author="Prashanth",                     # Full name of the author
     description="Automation Tool for informatica Cloud",
     long_description=long_description,      # Long description read from the the readme file

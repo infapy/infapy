@@ -49,3 +49,12 @@ class LimitExceededError(InfapyError):
         )
         
         InfapyError.__init__(self,msg)
+
+class InvalidArgumentsError(InfapyError):
+    def __init__(self):
+        
+        msg = (
+            "Invalid Arguments for method provided"
+        )
+        
+        InfapyError.__init__(self,msg)
