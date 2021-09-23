@@ -173,3 +173,38 @@ class GetAgent:
         infapy.log.info("Fetched Agent Service Details for Agent ID: " + id)
         data = response.json()
         return data
+
+    def deleteAgent(self,id):
+        """deleteAgent deletes Secure Agent specified by the Id, and returns response/status.
+
+        Args:
+            id (string): Agent Id.
+
+        Returns:
+            List of dict: <Response of Delete Request in dict Format>
+        """
+    
+        url=self._v2BaseURL + "/api/v2/agent/" + id
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.delete(url=url, headers=headers)
+            if response.status_code==200:
+                infapy.log.debug(str(response.reason))
+            else:
+                infapy.log.debug(str(response.json()))
+            
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Delete request completed for Agent ID: " + id)
+        if response.status_code==200:
+            data={"Status":"Agent " + id + " has been deleted."}
+        else:
+            data = response.json()
+        return data
