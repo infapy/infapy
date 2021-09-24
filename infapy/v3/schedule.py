@@ -94,3 +94,31 @@ class Schedule:
         infapy.log.info("Fetched Details for Schedules using the Query: " + query )
         data = response.json()
         return data
+
+    def createSchedule(self,body):
+        """createSchedule creates a Schedule based on the information provided in the Body. For configuration of body, please refer to: 
+            https://docs.informatica.com/integration-cloud/cloud-platform/current-version/rest-api-reference/platform-rest-api-version-3-resources/schedule.html
+
+        Args:
+            body (dict): JSON body for POST request.
+
+        Returns:
+            dict: <Status of Create Schedule Request in dict Format>
+        """
+        url=self._v3BaseURL + "/public/core/v3/schedule"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
+        infapy.log.info("createSchedule URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(body))
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.post(url=url, json=body, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Created Schedule with Given Specifications in the Org")
+        data = response.json()
+        return data
