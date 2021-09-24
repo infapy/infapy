@@ -118,3 +118,31 @@ class MTTask:
         infapy.log.info("Mapping Task Create Request Complete")
         data = response.json()
         return data 
+
+    def updateMTTaskFull(self,body,id):
+        """updateMTTaskFull updates an existing Mapping Task with specified ID based on the information provided in the Body, with Partial Mode Disabled. For configuration of body, please refer to: 
+            https://docs.informatica.com/integration-cloud/cloud-platform/current-version/rest-api-reference/data-integration-rest-api/mttask.html
+
+        Args:
+            body (dict): JSON body for POST request.
+
+        Returns:
+            dict: <Details of Update Mapping Task Request in dict Format>
+        """
+        url=self._cdiBaseURL + "/api/v2/mttask/" + id
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionId":self._cdiSessionID}
+        infapy.log.info("updateMTTaskFull URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(body))
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.post(url=url, headers=headers, json=body)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Mapping Task Full Update Request Complete")
+        data = response.json()
+        return data
