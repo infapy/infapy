@@ -15,4 +15,23 @@ class JobControl:
         self._v2icSessionID = v2icSessionID
 
 
-    
+    def startJob(self,jsonFile):
+        url=self._v2BaseURL + "/api/v2/auditlog?batchId=" + batchId + "&batchSize=" + batchSize
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("getAllAgentDetails URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.get(url=url, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        low_rownum = int(batchSize) * int(batchId) + 1
+        high_rownum = int(batchSize) * (int(batchId) + 1)
+        infapy.log.info("Fetched Audit Log Records " + str(low_rownum) + "-" + str(high_rownum) + " for the Org")
+        data = response.json()
+        return data
