@@ -69,3 +69,13 @@ class V2():
         """
         from infapy.v2.jobControl import JobControl
         return JobControl(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def taskList(self):
+        """This function returns an object of taskList
+        which has sub method to list tasks by type
+
+        Returns:
+            class object: v2.getAgent.TaskList
+        """
+        from infapy.v2.taskList import TaskList
+        return TaskList(self._v2,self._v2BaseURL,self._v2icSessionID)

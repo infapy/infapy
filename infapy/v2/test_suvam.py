@@ -1,3 +1,4 @@
+from infapy.v2.taskList import TaskList
 from infapy.v2.jobControl import JobControl
 import infapy
 
@@ -53,11 +54,14 @@ v2=infaHandler.v2()
 # Agent=v2.getAuditLog()
 # print(Agent.getAuditLogs("3","30"))
 
-JobControl=v2.jobControl()
-Job = {
-    "@type": "job",
-    "taskName": "MT_Warning",
-    "taskType": "MTT"
-}
-# print(JobControl.startJob(Job))
-print(JobControl.stopJob(Job))
+# JobControl=v2.jobControl()
+# Job = {
+#     "@type": "job",
+#     "taskName": "MT_Warning",
+#     "taskType": "MTT"
+# }
+# # print(JobControl.startJob(Job))
+# print(JobControl.stopJob(Job))
+
+TaskList=v2.taskList()
+print(TaskList.getTaskListByType("DSS"))
