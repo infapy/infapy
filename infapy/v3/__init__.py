@@ -33,3 +33,13 @@ class V3():
         """
         from infapy.v3.schedule import Schedule
         return Schedule(self._v3,self._v3BaseURL,self._v3SessionID)
+
+    def license(self):
+        """This function returns an object of license
+        which has multiple sub methods to fetch and update licenses in IICS orgs
+
+        Returns:
+            class object: v3.license.License
+        """
+        from infapy.v3.license import License
+        return License(self._v3,self._v3BaseURL,self._v3SessionID)

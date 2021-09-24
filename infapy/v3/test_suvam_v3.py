@@ -1,10 +1,13 @@
+from infapy.v3.license import License
 import infapy
 
 infapy.setFileLogger(name="test_Suvam",level="DEBUG")
-infaHandler = infapy.connect(profile="spani")
-v3=infaHandler.v3()
+infaLicenseHandler = infapy.connect(profile="spani_parent")
+v3_License=infaLicenseHandler.v3()
+# infaHandler = infapy.connect(profile="spani")
+# v3=infaHandler.v3()
 
-Schedule=v3.schedule()
+# Schedule=v3.schedule()
 # print(Schedule.getAllSchedules())
 # print(Schedule.getScheduleById("9dMjYg78QCpewd7iS939IzD0000000000002"))
 # print(Schedule.getSchedulesWithQuery("status=='enabled' and createdBy=='admin021651'"))
@@ -31,4 +34,7 @@ Schedule=v3.schedule()
 #     ]
 # }
 # print(Schedule.updateSchedule(updateBody,"9dMjYg78QCpewd7iS939IzD0000000000009"))
-print(Schedule.deleteSchedule("9dMjYg78QCpewd7iS939IzD0000000000009"))
+# print(Schedule.deleteSchedule("9dMjYg78QCpewd7iS939IzD0000000000009"))
+
+License=v3_License.license()
+# print(License.getLicenseDetails("9dMjYg78QCpewd7iS939Iz"))
