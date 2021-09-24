@@ -63,3 +63,30 @@ class MTTask:
         infapy.log.info("Fetched List of Mapping Task with Id: " + id)
         data = response.json()
         return data
+
+    def getMTTaskByName(self,name):
+        """getMTTaskById returns details for the Mapping Task specified by the Name.
+
+        Args:
+            name (string): Mapping Task Name.
+
+        Returns:
+            dict: <Mapping Task Details in dict Format>
+        """
+        url=self._cdiBaseURL + "/api/v2/mttask/name/" + name.replace(" ","%20")
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionId":self._cdiSessionID}
+        infapy.log.info("getMTTaskByName URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.get(url=url, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Fetched List of Mapping Task with Name: " + name)
+        data = response.json()
+        return data    
