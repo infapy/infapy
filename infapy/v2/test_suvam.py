@@ -49,5 +49,5 @@ v2=infaHandler.v2()
 # print(Agent.getAgentServiceDetailsById("0119Y408000000000003"))
 # print(Agent.deleteAgent("0119Y408000000000008"))
 
-Agent=v2.getAuditLog()
-print(Agent.getAuditLogs("3","30"))
+# Agent=v2.getAuditLog()
+# print(Agent.getAuditLogs("3","30"))
