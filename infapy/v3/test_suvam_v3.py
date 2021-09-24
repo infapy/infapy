@@ -8,13 +8,26 @@ Schedule=v3.schedule()
 # print(Schedule.getAllSchedules())
 # print(Schedule.getScheduleById("9dMjYg78QCpewd7iS939IzD0000000000002"))
 # print(Schedule.getSchedulesWithQuery("status=='enabled' and createdBy=='admin021651'"))
-bodyv3= {
-    "name": "TEST_SCHEDULE_API",
-    "status": "enabled",
+# bodyv3= {
+#     "name": "TEST_SCHEDULE_API",
+#     "status": "enabled",
+#     "frequency": 15,
+#     "dayOfMonth": 0,
+#     "scheduleFederatedId": "9GROQi3ZyIufwF9yzLtx0I",
+#     "startTime": "2021-04-05T15:00:20.000Z",
+#     "interval": "Minutely"
+# }
+# print(Schedule.createSchedule(bodyv3))
+updateBody={
+    "schedules":[
+        {
+    "id": "9dMjYg78QCpewd7iS939IzD0000000000009",
+    "name": "TEST_SCHEDULE_API_V2",
+    "status": "disabled",
     "frequency": 15,
-    "dayOfMonth": 0,
-    "scheduleFederatedId": "9GROQi3ZyIufwF9yzLtx0I",
-    "startTime": "2021-04-05T15:00:20.000Z",
-    "interval": "Minutely"
+    "description": "V2 API",
+    "scheduleFederatedId": "9GROQi3ZyIufwF9yzLtx0I"
 }
-print(Schedule.createSchedule(bodyv3))
+    ]
+}
+print(Schedule.updateSchedule(updateBody,"9dMjYg78QCpewd7iS939IzD0000000000009"))
