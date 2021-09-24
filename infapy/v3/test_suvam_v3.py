@@ -38,3 +38,14 @@ v3_License=infaLicenseHandler.v3()
 
 License=v3_License.license()
 # print(License.getLicenseDetails("9dMjYg78QCpewd7iS939Iz"))
+updateJSON={
+    "customLicenses": [
+        {
+            "licenseType": "TRIAL",
+            "expirationDate": "2021-06-26T04:26:35Z",
+            "startDate": "2021-05-19T04:26:37Z",
+            "licenseDef": "1QIHyRDYc66eXeUc38ZJmi"
+        }
+    ]
+}
+print(License.updateSubOrgLicense(updateJSON,"9dMjYg78QCpewd7iS939Iz"))

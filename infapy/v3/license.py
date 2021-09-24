@@ -41,3 +41,38 @@ class License:
         infapy.log.info("Fetched License Details for Org " + orgId )
         data = response.json()
         return data
+
+    def updateSubOrgLicense(self,body,orgId):
+        """updateSubOrgLicense can be used to update license for subOrg specified by the orgId, using the provided JSON body.
+
+        Args:
+            orgId (string): Sub Org Id.
+            body (dict): JSON body for POST request.
+
+        Returns:
+            dict: <License Details in dict Format>
+        """
+
+        url=self._v3BaseURL + "/public/core/v3/license/org/" + orgId
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
+        infapy.log.info("updateSubOrgLicense URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(body))
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.put(url=url, headers=headers, json=body)
+            if response.status_code==200:
+                infapy.log.debug(str(response.reason))
+            else:
+                infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Licenses for Sub Org " + orgId + " have been updated")
+        if response.status_code==200:
+            data={"Status":"Licenses for Sub Org " + orgId + " have been updated."}
+        else:
+            data = response.json()
+        return data
