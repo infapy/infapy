@@ -27,7 +27,7 @@ class JobControl:
 
         url=self._v2BaseURL + "/api/v2/job"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("startJob URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + str(body))
         # The below format is for post
@@ -40,5 +40,33 @@ class JobControl:
             infapy.log.exception(e)
             raise
         infapy.log.info("Job Start Request completed.")        
+        data = response.json()
+        return data
+
+    def stopJob(self,body):
+        """stopJob stops running Data Integration Jobs based on the JSON body specification.
+
+        Args:
+            body (dict): JSON body for POST request.
+
+        Returns:
+            dict: <Response of Stop Job Request in dict Format>
+        """
+
+        url=self._v2BaseURL + "/api/v2/job/stop"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("stopJob URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(body))
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.post(url=url, json=body, headers=headers)
+            infapy.log.debug(str(response.json()))            
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Job Stop Request completed.")        
         data = response.json()
         return data

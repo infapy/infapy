@@ -54,9 +54,10 @@ v2=infaHandler.v2()
 # print(Agent.getAuditLogs("3","30"))
 
 JobControl=v2.jobControl()
-startJob = {
+Job = {
     "@type": "job",
     "taskName": "MT_Warning",
     "taskType": "MTT"
 }
-print(JobControl.startJob(startJob))
+# print(JobControl.startJob(Job))
+print(JobControl.stopJob(Job))
