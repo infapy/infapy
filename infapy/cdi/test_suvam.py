@@ -6,4 +6,5 @@ infaHandler = infapy.connect(profile="spani")
 cdi=infaHandler.cdi()
 
 MTTask=cdi.mttask()
-print(MTTask.getAllMTTasks())
+# print(MTTask.getAllMTTasks())
+print(MTTask.getMTTaskById("0119Y40Z00000000000O"))
