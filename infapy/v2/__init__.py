@@ -29,3 +29,43 @@ class V2():
         """
         from infapy.v2.getActivityLog import GetActivityLog
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
+    def getActivityMonitor(self):
+        """This function returns an object of getActivityMonitor
+        which has sub method to fetch the activity log for running jobs
+
+        Returns:
+            class object: v2.getActivityMonitor.GetActivityMonitor
+        """
+        from infapy.v2.getActivityMonitor import GetActivityMonitor
+        return GetActivityMonitor(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
+    def getAgent(self):
+        """This function returns an object of getAgent
+        which has multiple sub methods to fetch details for agents in the org
+
+        Returns:
+            class object: v2.getAgent.GetAgent
+        """
+        from infapy.v2.getAgent import GetAgent
+        return GetAgent(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def getAuditLog(self):
+        """This function returns an object of getAuditLog
+        which has sub method to fetch audit logs for the org
+
+        Returns:
+            class object: v2.getAgent.GetAuditLog
+        """
+        from infapy.v2.getAuditLog import GetAuditLog
+        return GetAuditLog(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def jobControl(self):
+        """This function returns an object of jobControl
+        which has sub method to start/stop Jobs
+
+        Returns:
+            class object: v2.getAgent.JobControl
+        """
+        from infapy.v2.jobControl import JobControl
+        return JobControl(self._v2,self._v2BaseURL,self._v2icSessionID)
