@@ -66,3 +66,31 @@ class Schedule:
         infapy.log.info("Fetched Details for Schedule " + id )
         data = response.json()
         return data
+
+    def getSchedulesWithQuery(self,query):
+        """getScheduleWithQuery returns details for the schedules as specified by the filter query provided.
+
+        Args:
+            query (string): Filter Query to filter out Schedules.
+
+        Returns:
+            list of dict: <Schedule Details in dict Format>
+        """
+
+        url=self._v3BaseURL + "/public/core/v3/schedule?q=" + query
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
+        infapy.log.info("getScheduleWithQuery URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.get(url=url, headers=headers)
+            infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Fetched Details for Schedules using the Query: " + query )
+        data = response.json()
+        return data
