@@ -7,7 +7,7 @@ cdi=infaHandler.cdi()
 
 MTTask=cdi.mttask()
 # print(MTTask.getAllMTTasks())
-# print(MTTask.getMTTaskById("0119Y40Z00000000000O"))
+# print(MTTask.getMTTaskById("0119Y40Z00000000002P"))
 # print(MTTask.getMTTaskByName("MT_IU 2"))
 # createJSON={
 #     "@type":"mtTask",
@@ -411,8 +411,9 @@ MTTask=cdi.mttask()
 #     "connRuntimeAttrs": []
 # }
 # print(MTTask.updateMTTaskFull(updateFullJSON,"0119Y40Z00000000002P"))
-updatePartialJSON={
-    "@type":"mtTask",
-    "description": "NEW DESCRIPTION V2"
-}
-print(MTTask.updateMTTaskPartial(updatePartialJSON,"0119Y40Z00000000002P"))
+# updatePartialJSON={
+#     "@type":"mtTask",
+#     "description": "NEW DESCRIPTION V2"
+# }
+# print(MTTask.updateMTTaskPartial(updatePartialJSON,"0119Y40Z00000000002P"))
+print(MTTask.deleteMTTask("0119Y40Z00000000002P"))

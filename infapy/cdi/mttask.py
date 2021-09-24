@@ -155,7 +155,7 @@ class MTTask:
             body (dict): JSON body for POST request.
 
         Returns:
-            dict: <Details of Update Mapping Task Request in dict Format>
+            dict: <Details of Partial Update Mapping Task Request in dict Format>
         """
         url=self._cdiBaseURL + "/api/v2/mttask/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionId":self._cdiSessionID, "Update-Mode": "PARTIAL"}
@@ -174,3 +174,37 @@ class MTTask:
         infapy.log.info("Mapping Task Partial Update Request Complete")
         data = response.json()
         return data
+
+    def deleteMTTask(self,id):
+        """getMTTaskById deletes the Mapping Task specified by the Id.
+
+        Args:
+            id (string): Mapping Task Id.
+
+        Returns:
+            dict: <Details of Delete Mapping Task Request in dict Format>
+        """
+
+        url=self._cdiBaseURL + "/api/v2/mttask/" + id
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionId":self._cdiSessionID}
+        infapy.log.info("deleteMTTask URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.delete(url=url, headers=headers)
+            if response.status_code==200:
+                infapy.log.debug(str(response.reason))
+            else:
+                infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Mapping Task " + id + " has been deleted")
+        if response.status_code==200:
+            data={"Status":"Mapping Task " + id + " has been deleted."}
+        else:
+            data = response.json()
+        return data   
