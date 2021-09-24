@@ -18,16 +18,17 @@ Schedule=v3.schedule()
 #     "interval": "Minutely"
 # }
 # print(Schedule.createSchedule(bodyv3))
-updateBody={
-    "schedules":[
-        {
-    "id": "9dMjYg78QCpewd7iS939IzD0000000000009",
-    "name": "TEST_SCHEDULE_API_V2",
-    "status": "disabled",
-    "frequency": 15,
-    "description": "V2 API",
-    "scheduleFederatedId": "9GROQi3ZyIufwF9yzLtx0I"
-}
-    ]
-}
-print(Schedule.updateSchedule(updateBody,"9dMjYg78QCpewd7iS939IzD0000000000009"))
+# updateBody={
+#     "schedules":[
+#         {
+#     "id": "9dMjYg78QCpewd7iS939IzD0000000000009",
+#     "name": "TEST_SCHEDULE_API_V2",
+#     "status": "disabled",
+#     "frequency": 15,
+#     "description": "V2 API",
+#     "scheduleFederatedId": "9GROQi3ZyIufwF9yzLtx0I"
+# }
+#     ]
+# }
+# print(Schedule.updateSchedule(updateBody,"9dMjYg78QCpewd7iS939IzD0000000000009"))
+print(Schedule.deleteSchedule("9dMjYg78QCpewd7iS939IzD0000000000009"))

@@ -137,7 +137,7 @@ class Schedule:
 
         url=self._v3BaseURL + "/public/core/v3/schedule/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
-        infapy.log.info("createSchedule URL - " + url)
+        infapy.log.info("updateSchedule URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + str(body))
         # The below format is for post
@@ -152,3 +152,37 @@ class Schedule:
         infapy.log.info("Update Schedule " + id + "with Given Specifications in the Org")
         data = response.json()
         return data
+
+    def deleteSchedule(self,id):
+        """deleteSchedule deletes Schedule as specified by the Id.
+
+        Args:
+            id (string): Schedule Id.
+
+        Returns:
+            dict: <Status of Delete Schedule Request in dict Format>
+        """
+
+        url=self._v3BaseURL + "/public/core/v3/schedule/" + id
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
+        infapy.log.info("createSchedule URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + "This API requires no body")
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.delete(url=url, headers=headers)
+            if response.status_code==204:
+                infapy.log.debug(str(response.reason))
+            else:
+                infapy.log.debug(str(response.json()))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Schedule " + id + "has been deleted")
+        if response.status_code==204:
+            data={"Status":"Schedule " + id + " has been deleted."}
+        else:
+            data = response.json()
+        return data    
