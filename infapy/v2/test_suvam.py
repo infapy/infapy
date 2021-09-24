@@ -1,3 +1,4 @@
+from infapy.v2.jobControl import JobControl
 import infapy
 
 infapy.setFileLogger(name="test_Suvam",level="DEBUG")
@@ -51,3 +52,11 @@ v2=infaHandler.v2()
 
 # Agent=v2.getAuditLog()
 # print(Agent.getAuditLogs("3","30"))
+
+JobControl=v2.jobControl()
+startJob = {
+    "@type": "job",
+    "taskName": "MT_Warning",
+    "taskType": "MTT"
+}
+print(JobControl.startJob(startJob))

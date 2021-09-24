@@ -15,4 +15,30 @@ class JobControl:
         self._v2icSessionID = v2icSessionID
 
 
-    
+    def startJob(self,body):
+        """startJob starts Data Integration Jobs based on the JSON body specification.
+
+        Args:
+            body (dict): JSON body for POST request.
+
+        Returns:
+            dict: <Response of Start Job Request in dict Format>
+        """
+
+        url=self._v2BaseURL + "/api/v2/job"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(body))
+        # The below format is for post
+        # bodyV3={"username": userName,"password": password}
+        # r3 = re.post(url=urlV3, json=bodyV3, headers=headers)
+        try:
+            response = re.post(url=url, json=body, headers=headers)
+            infapy.log.debug(str(response.json()))            
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Job Start Request completed.")        
+        data = response.json()
+        return data
