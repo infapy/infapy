@@ -23,3 +23,13 @@ class V3():
     def objects(self):
         from infapy.v3.objects import Objects
         return Objects(v3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
+
+    def schedule(self):
+        """This function returns an object of schedule
+        which has multiple sub methods to fetch, create, update and delete schedules in IICS
+
+        Returns:
+            class object: v3.schedule.Schedule
+        """
+        from infapy.v3.schedule import Schedule
+        return Schedule(self._v3,self._v3BaseURL,self._v3SessionID)
