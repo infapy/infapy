@@ -14,3 +14,4 @@ infapy/cdi/__init__.py
 infapy/v2/__init__.py
 infapy/v2/getActivityLog.py
 infapy/v3/__init__.py
+infapy/v3/objects.py

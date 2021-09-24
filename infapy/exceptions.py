@@ -49,3 +49,21 @@ class LimitExceededError(InfapyError):
         )
         
         InfapyError.__init__(self,msg)
+
+class InvalidArgumentsError(InfapyError):
+    def __init__(self):
+        
+        msg = (
+            "Invalid Arguments for method provided"
+        )
+        
+        InfapyError.__init__(self,msg)
+
+class InvalidUserDetailsProvided(InfapyError):
+    def __init__(self):
+        
+        msg = (
+            "Invalid json body for method provided. Please read the docs"
+        )
+        
+        InfapyError.__init__(self,msg)
