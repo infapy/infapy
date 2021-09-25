@@ -16,6 +16,7 @@ from cryptography.fernet import Fernet
 import platform
 import os
 import logging
+import getpass
 from infapy.exceptions import InvalidRegionError, InfapyError, ConfigFileReadError, CredentialFileReadError
 
 
@@ -99,7 +100,7 @@ def encrypt():
     key=b'Qj8yLC3ohEy6fs3As54PWA3HsMyglrl_9hQqJfF8-74='
     fernet = Fernet(key)
     userName=input("Enter your user name: ")
-    password = input("Enter your password: ")
+    password = getpass.getpass(prompt = "Enter your password: ")
     try:
         encUserNameBytes=fernet.encrypt(userName.encode())
         encPasswordBytes=fernet.encrypt(password.encode())
@@ -110,8 +111,8 @@ def encrypt():
     encUserNameStr=str(encUserNameBytes).strip('b\'')
     encPasswordNameStr=str(encPasswordBytes).strip('b\'')
     
-    print("infa_access_key_id: " + encUserNameStr)
-    print("infa_secret_access_key: " + encPasswordNameStr)
+    print("infa_access_key_id = " + encUserNameStr)
+    print("infa_secret_access_key = " + encPasswordNameStr)
     
 def decrypt(encMessage):
     key=b'Qj8yLC3ohEy6fs3As54PWA3HsMyglrl_9hQqJfF8-74='
