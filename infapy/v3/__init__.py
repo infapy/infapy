@@ -91,10 +91,22 @@ class V3():
         return data
 
     def users(self):
+        """Returns a class object handler which has methods
+        to create, read and update users in IICS
+
+        Returns:
+            class object: use the user functions in this class
+        """
         from infapy.v3.users import Users
         return Users(v3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
 
     def userGroups(self):
+        """Returns a class object handler which has methods
+        to create, read and delete user groups in IICS
+
+        Returns:
+            class object: use the user group functions in this class
+        """
         from infapy.v3.userGroups import UserGroups
         return UserGroups(self._v3, self._v3BaseURL, self._v3SessionID)
 
@@ -117,3 +129,49 @@ class V3():
         """
         from infapy.v3.license import License
         return License(self._v3,self._v3BaseURL,self._v3SessionID)
+        
+    def userRoles(self):
+        """Returns a class object handler which has methods
+        tp create, read and delete user roles in IICS
+
+        Returns:
+            class object: use the user role functions in this class
+        """
+        from infapy.v3.userRoles import UserRoles
+        return UserRoles(self._v3, self._v3BaseURL, self._v3SessionID)
+
+    def getSecurityLogs(self):
+        """Returns a class object handler which has methods
+        to get security logs from IICS
+
+        Returns:
+            class object: use the getSecurityLogs methods inside this class
+        """
+        from infapy.v3.getSecurityLog import GetSecurityLogs
+        return GetSecurityLogs(self._v3, self._v3BaseURL, self._v3SessionID)
+    
+    def exportObject(self):
+        """Returns a class object handler which has methods
+        to perform export operation from your org in IICS
+
+        Use this method to perform auto code migration export
+
+        Returns:
+            class object: use the methods in the export object for 
+            performing auto code migration.
+        """
+        from infapy.v3.exportObject import ExportObject
+        return ExportObject(self._v3, self._v3BaseURL, self._v3SessionID)
+    
+    def importObject(self):
+        """Returns a class object handler which has methods
+        to perform import operation to your org in IICS
+
+        Use this method to perform auto code migration import
+
+        Returns:
+            class object: use the methods in the import object for 
+            performing auto code migration.
+        """
+        from infapy.v3.importObject import ImportObject
+        return ImportObject(self._v3, self._v3BaseURL, self._v3SessionID)
