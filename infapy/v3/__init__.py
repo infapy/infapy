@@ -30,8 +30,6 @@ class V3():
         """
         from infapy.v3.objects import Objects
         return Objects(v3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
-<<<<<<< HEAD
-=======
     
     def lookup(self,id=None,path=None,objectType=None):
         """lookup api is used to fetch the object ID.
@@ -111,7 +109,6 @@ class V3():
         """
         from infapy.v3.userGroups import UserGroups
         return UserGroups(self._v3, self._v3BaseURL, self._v3SessionID)
->>>>>>> c3081ad9106b27a76e066d07e99321029b6218f7
 
     def schedule(self):
         """This function returns an object of schedule
@@ -131,9 +128,6 @@ class V3():
             class object: v3.license.License
         """
         from infapy.v3.license import License
-<<<<<<< HEAD
-        return License(self._v3,self._v3BaseURL,self._v3SessionID)
-=======
         return License(self._v3,self._v3BaseURL,self._v3SessionID)
         
     def userRoles(self):
@@ -181,4 +175,3 @@ class V3():
         """
         from infapy.v3.importObject import ImportObject
         return ImportObject(self._v3, self._v3BaseURL, self._v3SessionID)
->>>>>>> c3081ad9106b27a76e066d07e99321029b6218f7

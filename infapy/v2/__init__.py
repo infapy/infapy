@@ -29,8 +29,6 @@ class V2():
         """
         from infapy.v2.getActivityLog import GetActivityLog
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
-<<<<<<< HEAD
-=======
 
     def getOrg(self):
         """This function returns an object of getOrg
@@ -92,7 +90,6 @@ class V2():
         infapy.log.info("Fetched the Local Time of the IICS Server")
         data = response.json()
         return data
->>>>>>> c3081ad9106b27a76e066d07e99321029b6218f7
     
     def getActivityMonitor(self):
         """This function returns an object of getActivityMonitor
@@ -142,8 +139,14 @@ class V2():
             class object: v2.getAgent.TaskList
         """
         from infapy.v2.taskList import TaskList
-<<<<<<< HEAD
         return TaskList(self._v2,self._v2BaseURL,self._v2icSessionID)
-=======
-        return TaskList(self._v2,self._v2BaseURL,self._v2icSessionID)
->>>>>>> c3081ad9106b27a76e066d07e99321029b6218f7
+
+    def mttask(self):
+        """This function returns an object of mttask
+        which has multiple sub methods to fetch, create, update and delete mapping tasks in IICS
+
+        Returns:
+            class object: v3.mttask.MTTask
+        """
+        from infapy.v2.mttask import MTTask
+        return MTTask(self._v2,self._v2BaseURL,self._v2icSessionID)
