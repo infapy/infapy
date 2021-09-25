@@ -9,9 +9,12 @@ class CDI():
         """This class is used to leverage the IICS CDI APIs
 
         Args:
-            cdi (json): login response of v2 login API
-            cdiBaseURL (string): The base url which we get from the v2 login API
-            cdiSessionID (string): The SessionID from the v2 Login API
+            v3 (json): login response of v3 login API
+            v2 (json): login response of v2 login API
+            v2BaseURL (string): The base url which we get from the v3 login API
+            v3BaseURL (string): The base url which we get from the v2 login API
+            v3SessionID (string): The SessionID from the v3 Login API
+            v2icSessionID (string): The SessionID from the v2 Login API
         """
 
         infapy.log.info("created a v2 handler object successfully")

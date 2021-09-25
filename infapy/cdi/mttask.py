@@ -65,7 +65,7 @@ class MTTask:
         return data
 
     def getMTTaskByName(self,name):
-        """getMTTaskById returns details for the Mapping Task specified by the Name.
+        """getMTTaskByName returns details for the Mapping Task specified by the Name.
 
         Args:
             name (string): Mapping Task Name.
