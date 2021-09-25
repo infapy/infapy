@@ -28,7 +28,7 @@ class GetAuditLog:
 
         url=self._v2BaseURL + "/api/v2/auditlog?batchId=" + batchId + "&batchSize=" + batchSize
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getAllAgentDetails URL - " + url)
+        infapy.log.info("getAuditLogs URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post

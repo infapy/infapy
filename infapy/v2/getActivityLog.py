@@ -35,7 +35,7 @@ class GetActivityLog:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Fetched the all the Activity log from IICS")
+        infapy.log.info("Fetched all Activity logs from IICS")
         data = response.json()
         return data
 
@@ -46,7 +46,7 @@ class GetActivityLog:
             id (string): ID of Log Entry.
 
         Returns:
-            List of dict: <Activity Log in dict Format>
+            dict: <Activity Log in dict Format>
         """
         url=self._v2BaseURL + "/api/v2/activity/activityLog/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
@@ -174,7 +174,7 @@ class GetActivityLog:
 
     def getSessionLog(self,id,location,fileNameWithoutExt=None,itemId=None,childItemId=None):
         """getSessionLog returns session logs for Data Integration Tasks and Linear Taskflows as specified by the log id provided in the arguments, and optional parameters.
-            Writes error log to specified location with the specified filename, or default filename obtained from response.
+            Writes session log to specified location with the specified filename, or default filename obtained from response.
 
         Args:
             id (string): ID of Log Entry.

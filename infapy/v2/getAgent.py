@@ -46,7 +46,7 @@ class GetAgent:
             platform (string): Operating system type. Valid values: win64 OR linux64
 
         Returns:
-            List of dict: <Installer link and registration token in dict Format>
+            dict: <Installer link and registration token in dict Format>
         """
         url=self._v2BaseURL + "/api/v2/agent/installerInfo/" + platform
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
@@ -73,12 +73,12 @@ class GetAgent:
             id (string): Agent Id.
 
         Returns:
-            List of dict: <Agent Details in dict Format>
+            dict: <Agent Details in dict Format>
         """
     
         url=self._v2BaseURL + "/api/v2/agent/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("getAgentDetailsById URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
@@ -106,7 +106,7 @@ class GetAgent:
     
         url=self._v2BaseURL + "/api/v2/agent/name/" + name.replace(" ","%20")
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("getAgentDetailsByName URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
@@ -130,7 +130,7 @@ class GetAgent:
         """
         url=self._v2BaseURL + "/api/v2/agent/details"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getAllAgentDetails URL - " + url)
+        infapy.log.info("getAllAgentServiceDetails URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
@@ -153,12 +153,12 @@ class GetAgent:
             id (string): Agent Id.
 
         Returns:
-            List of dict: <Agent Service Details in dict Format>
+            dict: <Agent Service Details in dict Format>
         """
     
         url=self._v2BaseURL + "/api/v2/agent/details/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("getAgentServiceDetailsById URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
@@ -181,12 +181,12 @@ class GetAgent:
             id (string): Agent Id.
 
         Returns:
-            List of dict: <Response of Delete Request in dict Format>
+            dict: <Response of Delete Request in dict Format>
         """
     
         url=self._v2BaseURL + "/api/v2/agent/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
-        infapy.log.info("getInstallerToken URL - " + url)
+        infapy.log.info("deleteAgent URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
