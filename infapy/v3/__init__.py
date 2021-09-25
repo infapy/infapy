@@ -84,7 +84,7 @@ class V3():
             data = response.json()
             infapy.log.debug(data)
         except Exception as e:
-            log.exception(e)
+            infapy.log.exception(e)
             raise
 
         infapy.log.info("Lookup completed")
