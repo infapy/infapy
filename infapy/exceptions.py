@@ -68,6 +68,10 @@ class InvalidUserDetailsProvided(InfapyError):
         
         msg = (
             "Invalid json body for method provided. Please read the docs"
+            )
+        
+        InfapyError.__init__(self,msg)
+        
 class InvalidDetailsProvided(InfapyError):
     def __init__(self, limit):
         
