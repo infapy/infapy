@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 2021-09-23 11:31:21,986  test  INFO: New instance of infapy started from hostname: INW1PF1YS5NR
 2021-09-23 11:31:21,987  test  INFO: Host OS: Windows
 2021-09-23 11:31:21,987  test  INFO: INFAPY Root Path: C:\Users\jefjames\.infa
@@ -1041,3 +1042,92 @@ json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 =======
 >>>>>>> spani
 >>>>>>> c3081ad9106b27a76e066d07e99321029b6218f7
+=======
+2021-09-24 22:22:52,829  test  INFO: New instance of infapy started from hostname: INW1PF1YS5NR
+2021-09-24 22:22:52,830  test  INFO: Host OS: Windows
+2021-09-24 22:22:52,830  test  INFO: INFAPY Root Path: C:\Users\jefjames\.infa
+2021-09-24 22:22:53,005  test  DEBUG: User Profile: {'region': 'us', 'infa_access_key_id': 'gAAAAABhTBSfRDnby25l8-3ckg83_YxZDFF_pVBJ6nek8WHfG4Bdtm9GOsMwB8xXA6_XRaYlWrcDTlwWRiZSPOIwQGziaiGTZA==', 'infa_secret_access_key': 'gAAAAABhTBSfYbn1Gf5C-4G316vvsp8Sc5JLE7JqhETiSJuCvKyjD-Xke1efMcZc3UfwDPy5tI1aB5eNdO8l387pGcdoYr_UmQ=='}
+2021-09-24 22:22:56,223  test  DEBUG: Connected to Informatica Cloud V3: {'products': [{'name': 'Integration Cloud', 'baseApiUrl': 'https://na2.dm-us.informaticacloud.com/saas'}], 'userInfo': {'sessionId': 'cN85gMj6cWBf9Waztwlqot', 'id': 'l3dedftp0ExcGD2aTWti6Q', 'name': 'Jeffline', 'parentOrgId': '52ZSTB0IDK6dXxaEQLUaQu', 'orgId': '80bTjaasFejbEkQynNFnyT', 'orgName': 'Infa NA2', 'groups': {'Admins': '6A3aXTEPacJiINyge1HQWK'}, 'status': 'Active'}}
+2021-09-24 22:22:56,224  test  DEBUG: Connected to Informatica Cloud V2: {'id': '000QML0300000000000N', 'orgId': '000QML', 'orgUuid': '80bTjaasFejbEkQynNFnyT', 'name': 'Jeffline', 'description': '', 'createTime': '2019-02-22T04:43:22.000Z', 'updateTime': '2020-04-29T09:09:05.000Z', 'createdBy': 'riya_iics_pod2', 'updatedBy': 'Jeffline', 'sfUsername': None, 'firstName': 'Jeffline', 'lastName': 'James', 'title': 'Software Engineer', 'password': '********', 'phone': '9876543210', 'emails': 'jefjames@informatica.com', 'timezone': None, 'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas', 'icSessionId': '4GfPkJm4jjQggLYNjBgHs5', 'securityQuestion': 'In what city was your first job?', 'securityAnswer': '********', 'uuid': 'l3dedftp0ExcGD2aTWti6Q', 'forceChangePassword': False, 'roles': [{'name': 'Admins', 'description': 'Automatically generated'}, {'name': 'Business Manager', 'description': 'Role used for business managers'}, {'name': 'kk_test', 'description': ''}, {'name': 'Data Viewer', 'description': 'Role used for granting access for data'}, {'name': 'Data Preview', 'description': 'Role to preview data'}], 'usergroups': [{'id': '6A3aXTEPacJiINyge1HQWK', 'orgId': '000QML', 'name': 'Admins', 'description': '', 'createTime': '2018-05-07T17:30:31.000Z', 'updateTime': '2019-05-06T03:51:52.000Z', 'createdBy': 'OrgMigUser_1525714228777', 'updatedBy': 'Jeffline'}], 'spiUrl': 'https://na2.ai.dm-us.informaticacloud.com'}
+2021-09-24 22:22:56,226  test  INFO: Created the v2 object to access the iics v2 apis
+2021-09-24 22:22:56,226  test  INFO: created a v2 class object successfully
+2021-09-24 22:22:56,226  test  INFO: v2BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-24 22:22:56,234  test  INFO: getUserById URL - https://na2.dm-us.informaticacloud.com/saas/api/v2/user/000QML0300000000001K
+2021-09-24 22:22:56,234  test  INFO: API Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'icSessionID': '4GfPkJm4jjQggLYNjBgHs5'}
+2021-09-24 22:22:56,234  test  INFO: Body: This API requires no body
+2021-09-24 22:22:57,729  test  DEBUG: {'@type': 'user', 'id': '000QML0300000000001K', 'orgId': '000QML', 'name': 'jj_test_1', 'description': '', 'createTime': '2021-09-24T12:08:26.000Z', 'updateTime': '2021-09-24T12:36:23.000Z', 'createdBy': 'Jeffline', 'updatedBy': 'jj_test_1', 'firstName': 'test', 'lastName': 'test', 'title': 'test', 'password': '********', 'phone': '08884133277', 'emails': 'jefflinejenisha@gmail.com', 'timezone': 'America/Los_Angeles', 'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas', 'spiUrl': 'https://paku.rt.informaticacloud.com/activevos', 'forceChangePassword': False, 'uuid': '5naLShnhFI6kw0NjXOkMmn', 'optOutOfEmails': False, 'usergroups': [], 'roles': [{'@type': 'role', 'name': 'Admin', 'description': 'Role for performing administrative tasks for an organization. Has full access to all licensed services.'}]}
+2021-09-24 22:22:57,730  test  INFO: Fetched the details of the User from IICS
+2021-09-24 22:22:57,732  test  INFO: deleteUser URL - https://na2.dm-us.informaticacloud.com/saas/api/v2/user/000QML0300000000001K
+2021-09-24 22:22:57,732  test  INFO: API Headers: {'icSessionID': '4GfPkJm4jjQggLYNjBgHs5'}
+2021-09-24 22:22:57,733  test  INFO: Body: This API requires no body
+2021-09-24 22:22:59,214  test  DEBUG: API Response Code 200
+2021-09-24 22:22:59,215  test  DEBUG: <bound method Response.json of <Response [200]>>
+2021-09-24 22:22:59,215  test  INFO: User with id 000QML0300000000001K deleted
+2021-09-24 22:22:59,215  test  INFO: getUserById URL - https://na2.dm-us.informaticacloud.com/saas/api/v2/user/000QML0300000000001K
+2021-09-24 22:22:59,215  test  INFO: API Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'icSessionID': '4GfPkJm4jjQggLYNjBgHs5'}
+2021-09-24 22:22:59,215  test  INFO: Body: This API requires no body
+2021-09-24 22:23:00,246  test  DEBUG: {'@type': 'error', 'code': 'REPO_10704', 'description': 'Internal error. An error occurred while loading the user. Contact Informatica Global Customer Support.', 'statusCode': 403}
+2021-09-24 22:23:00,247  test  INFO: Fetched the details of the User from IICS
+2021-09-25 12:11:27,531  test  INFO: New instance of infapy started from hostname: INW1PF1YS5NR
+2021-09-25 12:11:27,531  test  INFO: Host OS: Windows
+2021-09-25 12:11:27,531  test  INFO: INFAPY Root Path: C:\Users\jefjames\.infa
+2021-09-25 12:11:27,732  test  DEBUG: User Profile: {'region': 'us', 'infa_access_key_id': 'gAAAAABhTBSfRDnby25l8-3ckg83_YxZDFF_pVBJ6nek8WHfG4Bdtm9GOsMwB8xXA6_XRaYlWrcDTlwWRiZSPOIwQGziaiGTZA==', 'infa_secret_access_key': 'gAAAAABhTBSfYbn1Gf5C-4G316vvsp8Sc5JLE7JqhETiSJuCvKyjD-Xke1efMcZc3UfwDPy5tI1aB5eNdO8l387pGcdoYr_UmQ=='}
+2021-09-25 12:11:30,989  test  DEBUG: Connected to Informatica Cloud V3: {'products': [{'name': 'Integration Cloud', 'baseApiUrl': 'https://na2.dm-us.informaticacloud.com/saas'}], 'userInfo': {'sessionId': '2nL02iDkFWbeAAH4zQOAOV', 'id': 'l3dedftp0ExcGD2aTWti6Q', 'name': 'Jeffline', 'parentOrgId': '52ZSTB0IDK6dXxaEQLUaQu', 'orgId': '80bTjaasFejbEkQynNFnyT', 'orgName': 'Infa NA2', 'groups': {'Admins': '6A3aXTEPacJiINyge1HQWK'}, 'status': 'Active'}}
+2021-09-25 12:11:30,990  test  DEBUG: Connected to Informatica Cloud V2: {'id': '000QML0300000000000N', 'orgId': '000QML', 'orgUuid': '80bTjaasFejbEkQynNFnyT', 'name': 'Jeffline', 'description': '', 'createTime': '2019-02-22T04:43:22.000Z', 'updateTime': '2020-04-29T09:09:05.000Z', 'createdBy': 'riya_iics_pod2', 'updatedBy': 'Jeffline', 'sfUsername': None, 'firstName': 'Jeffline', 'lastName': 'James', 'title': 'Software Engineer', 'password': '********', 'phone': '9876543210', 'emails': 'jefjames@informatica.com', 'timezone': None, 'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas', 'icSessionId': '4t6oKP4Wc2bhUppcC3qGEO', 'securityQuestion': 'In what city was your first job?', 'securityAnswer': '********', 'uuid': 'l3dedftp0ExcGD2aTWti6Q', 'forceChangePassword': False, 'roles': [{'name': 'Admins', 'description': 'Automatically generated'}, {'name': 'Business Manager', 'description': 'Role used for business managers'}, {'name': 'kk_test', 'description': ''}, {'name': 'Data Viewer', 'description': 'Role used for granting access for data'}, {'name': 'Data Preview', 'description': 'Role to preview data'}], 'usergroups': [{'id': '6A3aXTEPacJiINyge1HQWK', 'orgId': '000QML', 'name': 'Admins', 'description': '', 'createTime': '2018-05-07T17:30:31.000Z', 'updateTime': '2019-05-06T03:51:52.000Z', 'createdBy': 'OrgMigUser_1525714228777', 'updatedBy': 'Jeffline'}], 'spiUrl': 'https://na2.ai.dm-us.informaticacloud.com'}
+2021-09-25 12:11:30,993  test  INFO: Created the v2 object to access the iics v2 apis
+2021-09-25 12:11:30,993  test  INFO: created a v2 class object successfully
+2021-09-25 12:11:30,993  test  INFO: v2BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:11:31,003  test  INFO: Created the v3 object to access the iics v3 apis
+2021-09-25 12:11:31,003  test  INFO: created a v2 handler object successfully
+2021-09-25 12:11:31,004  test  INFO: v3BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:11:31,010  test  INFO: agentService API URL - https://na2.dm-us.informaticacloud.com/saas/public/core/v3/agent/service
+2021-09-25 12:11:31,010  test  INFO: API Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'INFA-SESSION-ID': '2nL02iDkFWbeAAH4zQOAOV'}
+2021-09-25 12:11:31,010  test  INFO: Body: {'serviceName': 'OI Data Collector', 'serviceAction': 'start', 'agentId': 'jGbv2pNa8qukzzKDNZsCI6'}
+2021-09-25 12:11:32,922  test  DEBUG: {'serviceState': 'NEED_RUNNING', 'message': 'Successfully initiated START action. Note that only the latest version of the service  will be started. Send a GET request to  /v2/agent/details API to check the updated status of the service.'}
+2021-09-25 12:11:32,923  test  INFO: Successfully initiated START action. Note that only the latest version of the service  will be started. Send a GET request to  /v2/agent/details API to check the updated status of the service.
+2021-09-25 12:12:37,345  test  INFO: New instance of infapy started from hostname: INW1PF1YS5NR
+2021-09-25 12:12:37,345  test  INFO: Host OS: Windows
+2021-09-25 12:12:37,346  test  INFO: INFAPY Root Path: C:\Users\jefjames\.infa
+2021-09-25 12:12:37,483  test  DEBUG: User Profile: {'region': 'us', 'infa_access_key_id': 'gAAAAABhTBSfRDnby25l8-3ckg83_YxZDFF_pVBJ6nek8WHfG4Bdtm9GOsMwB8xXA6_XRaYlWrcDTlwWRiZSPOIwQGziaiGTZA==', 'infa_secret_access_key': 'gAAAAABhTBSfYbn1Gf5C-4G316vvsp8Sc5JLE7JqhETiSJuCvKyjD-Xke1efMcZc3UfwDPy5tI1aB5eNdO8l387pGcdoYr_UmQ=='}
+2021-09-25 12:12:40,579  test  DEBUG: Connected to Informatica Cloud V3: {'products': [{'name': 'Integration Cloud', 'baseApiUrl': 'https://na2.dm-us.informaticacloud.com/saas'}], 'userInfo': {'sessionId': 'fa7bn7s9weYbVnSHjYvAiU', 'id': 'l3dedftp0ExcGD2aTWti6Q', 'name': 'Jeffline', 'parentOrgId': '52ZSTB0IDK6dXxaEQLUaQu', 'orgId': '80bTjaasFejbEkQynNFnyT', 'orgName': 'Infa NA2', 'groups': {'Admins': '6A3aXTEPacJiINyge1HQWK'}, 'status': 'Active'}}
+2021-09-25 12:12:40,579  test  DEBUG: Connected to Informatica Cloud V2: {'id': '000QML0300000000000N', 'orgId': '000QML', 'orgUuid': '80bTjaasFejbEkQynNFnyT', 'name': 'Jeffline', 'description': '', 'createTime': '2019-02-22T04:43:22.000Z', 'updateTime': '2020-04-29T09:09:05.000Z', 'createdBy': 'riya_iics_pod2', 'updatedBy': 'Jeffline', 'sfUsername': None, 'firstName': 'Jeffline', 'lastName': 'James', 'title': 'Software Engineer', 'password': '********', 'phone': '9876543210', 'emails': 'jefjames@informatica.com', 'timezone': None, 'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas', 'icSessionId': '1zOOGByeiKAhLar3nnJCGa', 'securityQuestion': 'In what city was your first job?', 'securityAnswer': '********', 'uuid': 'l3dedftp0ExcGD2aTWti6Q', 'forceChangePassword': False, 'roles': [{'name': 'Admins', 'description': 'Automatically generated'}, {'name': 'Business Manager', 'description': 'Role used for business managers'}, {'name': 'kk_test', 'description': ''}, {'name': 'Data Viewer', 'description': 'Role used for granting access for data'}, {'name': 'Data Preview', 'description': 'Role to preview data'}], 'usergroups': [{'id': '6A3aXTEPacJiINyge1HQWK', 'orgId': '000QML', 'name': 'Admins', 'description': '', 'createTime': '2018-05-07T17:30:31.000Z', 'updateTime': '2019-05-06T03:51:52.000Z', 'createdBy': 'OrgMigUser_1525714228777', 'updatedBy': 'Jeffline'}], 'spiUrl': 'https://na2.ai.dm-us.informaticacloud.com'}
+2021-09-25 12:12:40,581  test  INFO: Created the v2 object to access the iics v2 apis
+2021-09-25 12:12:40,581  test  INFO: created a v2 class object successfully
+2021-09-25 12:12:40,581  test  INFO: v2BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:12:40,589  test  INFO: Created the v3 object to access the iics v3 apis
+2021-09-25 12:12:40,589  test  INFO: created a v2 handler object successfully
+2021-09-25 12:12:40,589  test  INFO: v3BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:12:40,591  test  INFO: agentService API URL - https://na2.dm-us.informaticacloud.com/saas/public/core/v3/agent/service
+2021-09-25 12:12:40,591  test  INFO: API Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'INFA-SESSION-ID': 'fa7bn7s9weYbVnSHjYvAiU'}
+2021-09-25 12:12:40,591  test  INFO: Body: {'serviceName': 'OI Data Collector', 'serviceAction': 'start', 'agentId': 'jGbv2pNa8qukzzKDNZsCI6'}
+2021-09-25 12:12:42,402  test  DEBUG: {'error': {'code': 'AgentServiceV3APIError_006', 'message': 'Requested action is not allowed at this time. To check the current state of the service, send a GET request using the following API: /api/v2/agent/details.', 'debugMessage': 'Requested action is not allowed at this time. To check the current state of the service, send a GET request using the following API: /api/v2/agent/details.', 'requestId': '0wAxAudkqsKjlDUIzRfTg8', 'details': None}}
+2021-09-25 12:12:42,403  test  ERROR: Please validate the details passed
+2021-09-25 12:12:42,403  test  ERROR: {'error': {'code': 'AgentServiceV3APIError_006', 'message': 'Requested action is not allowed at this time. To check the current state of the service, send a GET request using the following API: /api/v2/agent/details.', 'debugMessage': 'Requested action is not allowed at this time. To check the current state of the service, send a GET request using the following API: /api/v2/agent/details.', 'requestId': '0wAxAudkqsKjlDUIzRfTg8', 'details': None}}
+2021-09-25 12:12:42,403  test  ERROR: __init__() missing 1 required positional argument: 'limit'
+Traceback (most recent call last):
+  File "C:\Users\jefjames\Documents\GitHub\infapy\infapy\v3\agentService.py", line 31, in updateAgentService
+    raise InvalidDetailsProvided
+TypeError: __init__() missing 1 required positional argument: 'limit'
+2021-09-25 12:12:42,404  test  ERROR: __init__() missing 1 required positional argument: 'limit'
+Traceback (most recent call last):
+  File "C:\Users\jefjames\Documents\GitHub\infapy\infapy\v3\agentService.py", line 31, in updateAgentService
+    raise InvalidDetailsProvided
+TypeError: __init__() missing 1 required positional argument: 'limit'
+2021-09-25 12:13:30,524  test  INFO: New instance of infapy started from hostname: INW1PF1YS5NR
+2021-09-25 12:13:30,524  test  INFO: Host OS: Windows
+2021-09-25 12:13:30,525  test  INFO: INFAPY Root Path: C:\Users\jefjames\.infa
+2021-09-25 12:13:30,689  test  DEBUG: User Profile: {'region': 'us', 'infa_access_key_id': 'gAAAAABhTBSfRDnby25l8-3ckg83_YxZDFF_pVBJ6nek8WHfG4Bdtm9GOsMwB8xXA6_XRaYlWrcDTlwWRiZSPOIwQGziaiGTZA==', 'infa_secret_access_key': 'gAAAAABhTBSfYbn1Gf5C-4G316vvsp8Sc5JLE7JqhETiSJuCvKyjD-Xke1efMcZc3UfwDPy5tI1aB5eNdO8l387pGcdoYr_UmQ=='}
+2021-09-25 12:13:33,957  test  DEBUG: Connected to Informatica Cloud V3: {'products': [{'name': 'Integration Cloud', 'baseApiUrl': 'https://na2.dm-us.informaticacloud.com/saas'}], 'userInfo': {'sessionId': 'eh4turrSfcpgFoDSssg2ML', 'id': 'l3dedftp0ExcGD2aTWti6Q', 'name': 'Jeffline', 'parentOrgId': '52ZSTB0IDK6dXxaEQLUaQu', 'orgId': '80bTjaasFejbEkQynNFnyT', 'orgName': 'Infa NA2', 'groups': {'Admins': '6A3aXTEPacJiINyge1HQWK'}, 'status': 'Active'}}
+2021-09-25 12:13:33,958  test  DEBUG: Connected to Informatica Cloud V2: {'id': '000QML0300000000000N', 'orgId': '000QML', 'orgUuid': '80bTjaasFejbEkQynNFnyT', 'name': 'Jeffline', 'description': '', 'createTime': '2019-02-22T04:43:22.000Z', 'updateTime': '2020-04-29T09:09:05.000Z', 'createdBy': 'riya_iics_pod2', 'updatedBy': 'Jeffline', 'sfUsername': None, 'firstName': 'Jeffline', 'lastName': 'James', 'title': 'Software Engineer', 'password': '********', 'phone': '9876543210', 'emails': 'jefjames@informatica.com', 'timezone': None, 'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas', 'icSessionId': '57r4GLZ7dKUjQxEaBmDoop', 'securityQuestion': 'In what city was your first job?', 'securityAnswer': '********', 'uuid': 'l3dedftp0ExcGD2aTWti6Q', 'forceChangePassword': False, 'roles': [{'name': 'Admins', 'description': 'Automatically generated'}, {'name': 'Business Manager', 'description': 'Role used for business managers'}, {'name': 'kk_test', 'description': ''}, {'name': 'Data Viewer', 'description': 'Role used for granting access for data'}, {'name': 'Data Preview', 'description': 'Role to preview data'}], 'usergroups': [{'id': '6A3aXTEPacJiINyge1HQWK', 'orgId': '000QML', 'name': 'Admins', 'description': '', 'createTime': '2018-05-07T17:30:31.000Z', 'updateTime': '2019-05-06T03:51:52.000Z', 'createdBy': 'OrgMigUser_1525714228777', 'updatedBy': 'Jeffline'}], 'spiUrl': 'https://na2.ai.dm-us.informaticacloud.com'}
+2021-09-25 12:13:33,960  test  INFO: Created the v2 object to access the iics v2 apis
+2021-09-25 12:13:33,960  test  INFO: created a v2 class object successfully
+2021-09-25 12:13:33,960  test  INFO: v2BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:13:33,965  test  INFO: Created the v3 object to access the iics v3 apis
+2021-09-25 12:13:33,965  test  INFO: created a v2 handler object successfully
+2021-09-25 12:13:33,965  test  INFO: v3BaseURL: https://na2.dm-us.informaticacloud.com/saas
+2021-09-25 12:13:33,968  test  INFO: agentService API URL - https://na2.dm-us.informaticacloud.com/saas/public/core/v3/agent/service
+2021-09-25 12:13:33,968  test  INFO: API Headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'INFA-SESSION-ID': 'eh4turrSfcpgFoDSssg2ML'}
+2021-09-25 12:13:33,968  test  INFO: Body: {'serviceName': 'OI Data Collector', 'serviceAction': 'stop', 'agentId': 'jGbv2pNa8qukzzKDNZsCI6'}
+2021-09-25 12:13:35,738  test  DEBUG: {'serviceState': 'NEED_STOP', 'message': 'Successfully initiated STOP action. Note that this will stop all versions of the service. Send a GET request to /v2/agent/details API to check the updated status of the service.'}
+2021-09-25 12:13:35,739  test  INFO: Successfully initiated STOP action. Note that this will stop all versions of the service. Send a GET request to /v2/agent/details API to check the updated status of the service.
+>>>>>>> origin/Jeffline

@@ -2,10 +2,11 @@ import logging
 import requests as re
 import infapy
 import json
+from infapy.exceptions import InvalidDetailsProvided
 
 # infapy.log = logging.getinfapy.log(__name__)
 # print(infapy.log)
-class GetOrg:
+class Org:
     """
     This class is a handler for fetching the Org and Sub-org Details from IICS
     """
@@ -81,5 +82,82 @@ class GetOrg:
             infapy.log.exception(e)
             raise
         infapy.log.info("Fetched the Sub Organization Details from IICS")
+        data = response.json()
+        return data
+    
+    def updateSubOrgDetails(self, suborgId, subOrgDetailsInJson):
+        """The function updateSubOrgDetails can be used to update the details of a Sub-org
+
+        Args:
+            suborgId (steing): Sub Org Id
+            subOrgDetailsInJson (dict): Sub-Org details in json format 
+
+        Raises:
+            InvalidDetailsProvided: [description]
+
+        Returns:
+            List of dict: <Updated Sub Org Details in dict Format>
+        """
+        url=self._v2BaseURL + "/api/v2/org/" + suborgId
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        body = subOrgDetailsInJson
+        infapy.log.info("updateSubOrgDetails URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(subOrgDetailsInJson))
+        try:
+            response = re.post(url=url, json=body, headers=headers)
+            data = response.json()
+            infapy.log.debug(str(data))
+            try:
+                if ("error" in data):
+                    infapy.log.error("Please validate the json string and provide a valid json")
+                    infapy.log.error("Org Details update failed")
+                    infapy.log.error(str(data))
+                    raise InvalidDetailsProvided
+            except Exception as e:
+                infapy.log.exception(e)
+                raise
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Updated the Sub Organization Details from IICS")
+        data = response.json()
+        return data
+
+    def registerSubOrg(self, subOrgRegInfoInJson):
+        """The function registerSubOrg can be used register a new sub org
+
+        Args:
+            subOrgRegInfoInJson (dict): Details for Sub-org Registeration in json format 
+
+        Raises:
+            InvalidDetailsProvided: [description]
+
+        Returns:
+            List of dict: <Sub Org Details in dict Format>
+        """
+        url=self._v2BaseURL + "/api/v2/user/register"
+        headers = {'Content-Type': "application/json", 'Accept': "application/json","icSessionID":self._v2icSessionID}
+        body = subOrgRegInfoInJson
+        infapy.log.info("registerSubOrg URL - " + url)
+        infapy.log.info("API Headers: " + str(headers))
+        infapy.log.info("Body: " + str(subOrgRegInfoInJson))
+        try:
+            response = re.post(url=url, json=body, headers=headers)
+            data = response.json()
+            infapy.log.debug(str(data))
+            try:
+                if ("error" in data):
+                    infapy.log.error("Please validate the json string and provide a valid json")
+                    infapy.log.error("Sub Org creation failed")
+                    infapy.log.error(str(data))
+                    raise InvalidDetailsProvided
+            except Exception as e:
+                infapy.log.exception(e)
+                raise
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+        infapy.log.info("Sub Org created successfully")
         data = response.json()
         return data

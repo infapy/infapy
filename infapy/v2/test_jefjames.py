@@ -1,3 +1,4 @@
+from requests.models import Response, codes
 import infapy
 
 infapy.setFileLogger(name="test",level="DEBUG")
@@ -64,24 +65,155 @@ v2=infaHandler.v2()
 
 ##########################################################################
 
-serverTime = v2.getServerTime()
-print(serverTime)
+# serverTime = v2.getServerTime()
+# print(serverTime)
 
 ##########################################################################
-# v3=infaHandler.v3()
-# queryString="location=='Prashanth/infapy'"
-# objectDetails=v3.objects().getObjectID(q=queryString)
-# # print(objectDetails)
-# myMTTObject = objectDetails["objects"][1]["id"]
-# # print(myMTTObject)
 
-# objectDependencies = v3.objects().getObjectDependency(objectID=myMTTObject)
-# print(objectDependencies)
+# allUsersDetails = v2.getUser().getAllUsers()
+# print("All Users Details:")
+# print(allUsersDetails)
 
-# for eachDependenecy in objectDependencies["references"]:
-#     print()
-#     print("*****************************************")
-#     print(eachDependenecy)
-#     print("*****************************************")
-#     print()
+# userId = "000QML0300000000000P"
+# userDetails = v2.getUser().getUserById(userId)
+# print("User Details:")
+# print(userDetails)
 
+# userName = "Jeffline"
+# userDetails = v2.getUser().getUserByName(userName)
+# print("User Jeffline:")
+# print(userDetails)
+
+##########################################################################
+
+# id = "0106LX";
+# data = {
+#     '@type': 'org',
+#     'id': '0106LX',
+#     'orgId': '0106LX',
+#     'name': 'Infa-IIDIQ-POD2-suborg-1',
+#     'description': '',
+#     'createTime': '2018-07-05T00:13:10.000Z',
+#     'updateTime': '2020-10-14T05:25:43.000Z',
+#     'createdBy': 'idiq_prod_pod2',
+#     'updatedBy': 'mosharma@informatica.com',
+#     'address1': 'update',
+#     'address2': '',
+#     'address3': '',
+#     'employees': '0_10',
+#     'city': 'city',
+#     'country': 'US',
+#     'state': 'MD',
+#     'zipcode': '90001',
+#     'successEmails': '',
+#     'warningEmails': '',
+#     'errorEmails': '',
+#     'spiUrl': 'https://paku.rt.informaticacloud.com/activevos',
+#     'devOrg': 'false',
+#     'timezone': 'America/Los_Angeles',
+#     'maxLogRows': 100,
+#     'minPasswordLength': 9,
+#     'minPasswordCharMix': 3,
+#     'passwordReuseInDays': 90,
+#     'passwordExpirationInDays': 180,
+#     'subOrgLimit': 0,
+#     'restApiSessionLimit': 0,
+#     'parentOrgId': '80bTjaasFejbEkQynNFnyT',
+#     'subOrgs': [],
+#     'twoFactorAuthentication': 'false',
+#     'orgUUID': "6Q0z2tCamb1bfBWxQYCam9",
+#     'ipAddressRanges': []
+# }
+
+# response = v2.org().updateSubOrgDetails(id,data)
+# print(response)
+
+# ##########################################################################
+
+# userid = "000QML0300000000000V"
+# data = {
+#     '@type': 'user',
+#     'id': '000QML0300000000000V',
+#     'orgId': '000QML',
+#     'name': 'CAI_Anonymous_80bTjaasFejbEkQynNFnyT',
+#     'createTime': '2019-11-17T03:57:50.000Z',
+#     'updateTime': '2021-09-24T10:23:19.004Z',
+#     'createdBy': 'icrt',
+#     'updatedBy': 'Jeffline',
+#     'firstName': 'CAI',
+#     'lastName': 'Anonymous',
+#     'password': '********',
+#     'emails': 'caianonymous@email.com',
+#     'timezone': 'America/Los_Angeles',
+#     'serverUrl': 'https://na2.dm-us.informaticacloud.com/saas',
+#     'spiUrl': 'https://paku.rt.informaticacloud.com/activevos',
+#     'forceChangePassword': 'false',
+#     'uuid': '1HXerKm4R64hnJPCnrqZws',
+#     'optOutOfEmails': 'false',
+#     'usergroups': [],
+#     'roles': [
+#         {
+#             '@type': 'role',
+#             'name': 'Service Consumer',
+#             'description': 'Role for running tasks, taskflows, and processes.'
+#         }
+#     ]
+# }
+
+# response1 = v2.user().updateUserDetails(userid, data)
+# print(response1)
+
+##########################################################################
+
+# data = {
+#     '@type' : 'registration',
+#     'user' : {
+#         '@type' : 'user',
+#         'name' : 'jjtest',
+#         'emails' : 'jefjames@informatica.com',
+#         'firstName' : 'firstName',
+#         'lastName' : 'lastName',
+#         'title' : 'jobTitle',
+#         'phone' : '(0)1234 567 890',
+#         'timezone' : 'null',
+#         'forceChangePassword' : 'false'
+#     },
+#     'org' : {
+#         '@type' : 'org',
+#         'offerCode' : 'PPC30daytrial', 
+#         'campaignCode' : 'PPC',
+#         'name' : 'testorg',
+#         'address1' : '1 Main St',
+#         'city' : 'Mycity',
+#         'state' : 'CA',
+#         'zipcode' : '90210',
+#         'country' : 'US',
+#         'employees' : '5001_'
+#     },
+#     'registrationCode' : 'ics-standard', 
+#     'sendEmail' : 'true'
+# }
+
+# response = v2.org().registerSubOrg(data)
+# print(response)
+
+##########################################################################
+
+# id = "000QML0300000000001K"
+
+# userDetails = v2.user().getUserById(id)
+# print(userDetails)
+
+# respCode = v2.user().deleteUser(id)
+# print(respCode)
+
+# userDetails = v2.user().getUserById(id)
+# print(userDetails)
+
+##########################################################################
+v3=infaHandler.v3()
+sName = "OI Data Collector"
+sAction = "stop"
+agentId = "jGbv2pNa8qukzzKDNZsCI6"
+response=v3.AgentService().updateAgentService(sName,sAction,agentId)
+print(response)

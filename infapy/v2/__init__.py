@@ -1,5 +1,6 @@
 import requests as re
 import infapy
+from infapy.exceptions import InvalidDetailsProvided
 
 # infapy.log = logging.getinfapy.log(__name__)
 
@@ -30,25 +31,17 @@ class V2():
         from infapy.v2.getActivityLog import GetActivityLog
         return GetActivityLog(self._v2,self._v2BaseURL,self._v2icSessionID)
 
-    def getOrg(self):
+    def org(self):
         """This function returns an object of getOrg
         which has multiple sub methods to fetch the Org and Sub-org Details
 
         Returns:
             class object: v2.getOrg.GetOrg
         """
-        from infapy.v2.getOrg import GetOrg
-        return GetOrg(self._v2,self._v2BaseURL,self._v2icSessionID)
+        from infapy.v2.org import Org
+        return Org(self._v2,self._v2BaseURL,self._v2icSessionID)
 
-    # def updateOrg(self):
-    #     """This function returns an object of getOrg
-    #     which has multiple sub methods to Update the Org and Sub-org Details
-
-    #     Returns:
-    #         class object: v2.updateOrg.UpdateOrg
-    #     """
-    #     from infapy.v2.updateOrg import UpdateOrg
-    #     return UpdateOrg(self._v2,self._v2BaseURL,self._v2icSessionID)
+    
 
     def getRuntimeEnvironment(self):
         """This function returns an object of getRuntimeEnvironment
@@ -65,7 +58,7 @@ class V2():
         which has multiple sub methods to fetch the Details of Runtime Environments
 
         Returns:
-            class object: v2.getRuntimeEnvironment.GetRuntimeEnvironment
+            class object: v2.getSchedule.GetSchedule
         """
         from infapy.v2.getSchedule import GetSchedule
         return GetSchedule(self._v2,self._v2BaseURL,self._v2icSessionID)
@@ -150,3 +143,15 @@ class V2():
         """
         from infapy.v2.mttask import MTTask
         return MTTask(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    def user(self):
+        """This function returns an object of getUser
+        which has multiple sub methods to fetch the details of IICS Users
+
+        Returns:
+            class object: v2.getUser.GetUser
+        """
+        from infapy.v2.user import User
+        return User(self._v2,self._v2BaseURL,self._v2icSessionID)
+
+    

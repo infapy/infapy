@@ -175,3 +175,6 @@ class V3():
         """
         from infapy.v3.importObject import ImportObject
         return ImportObject(self._v3, self._v3BaseURL, self._v3SessionID)
+    def AgentService(self):
+        from infapy.v3.agentService import AgentService
+        return AgentService(v3=self._v3,v3BaseURL=self._v3BaseURL,v3SessionID=self._v3SessionID)
