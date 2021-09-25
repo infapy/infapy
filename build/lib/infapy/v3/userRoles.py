@@ -1,37 +1,24 @@
-# Copyright (c) 2021-Present (Prashanth Pradeep)
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-
-#     http://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 import infapy
 import requests as re
 from infapy.exceptions import InvalidArgumentsError
 
-class UserGroups:
+class UserRoles:
     def __init__(self,v3, v3BaseURL, v3SessionID):
         self._v3 = v3
         self._v3BaseURL = v3BaseURL
         self._v3SessionID = v3SessionID
 
-    def getAllUserGroups(self):
-        """Method for fetching all the user groups in IICS
+    def getAllUserRoles(self):
+        """Method for fetching all the user roles in IICS
 
         Returns:
-            list of dict: List of all user groups in IICS
+            list of dict: List of all user roles in IICS
         """
-        infapy.log.info("getting all user groups. Processing request....")
-        url=self._v3BaseURL + "/public/core/v3/userGroups"
+        infapy.log.info("getting all user roles. Processing request....")
+        url=self._v3BaseURL + "/public/core/v3/roles"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
-        infapy.log.info("get all user groups API URL - " + url)
+        infapy.log.info("get all user roles API URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
 
@@ -41,25 +28,25 @@ class UserGroups:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Fetched the all the user group details from IICS")
+        infapy.log.info("Fetched the all the user role details from IICS")
         data = response.json()
-        infapy.log.info("getAllUserGroups() called successfully. Processing completed")
+        infapy.log.info("getAllUserroles() called successfully. Processing completed")
         return data
 
-    def getUserGroupByName(self,userGroupName):
-        """Method for fetching the user group details
+    def getUserRoleByName(self,userRoleName):
+        """Method for fetching the user role details
         by name in IICS
 
         Args:
-            userGroupName (string): name of the usergroup
+            userRoleName (string): name of the userrole
 
         Returns:
-            dict: userGroup Details
+            dict: userrole Details
         """
         
-        infapy.log.info("getting the requested user group. Processing request....")
-        infapy.log.info("User Group Requested: " + str(userGroupName))
-        url=self._v3BaseURL + "/public/core/v3/userGroups?q=userGroupName==" + str(userGroupName)
+        infapy.log.info("getting the requested user role. Processing request....")
+        infapy.log.info("User role Requested: " + str(userRoleName))
+        url=self._v3BaseURL + "/public/core/v3/roles?q=roleName==\"" + str(userRoleName) + "\"&expand=privileges"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
         infapy.log.info("Requested user API URL - " + url)
@@ -72,33 +59,51 @@ class UserGroups:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Fetched the requesteduser group details from IICS")
+        infapy.log.info("Fetched the requested user role details from IICS")
         data = response.json()
-        infapy.log.info("getUserGroupByName() called successfully. Processing completed")
+        infapy.log.info("getUserRoleByName() called successfully. Processing completed")
         return data
 
-    def createNewUserGroup(self,userGroupJson):
-        """You can use this method to create a new user group
+    def createNewUserRole(self,name, description, privileges):
+        """You can use this method to create a new user role
 
         Args:
-            userGroupJson (dict): please read the documentation
+            userRoleJson (dict): please read the documentation
 
         Raises:
             InvalidArgumentsError: if invalid args are passed
 
         Returns:
-            dict: user group created response
+            dict: user role created response
         """
-        infapy.log.info("Creating new user group..")
-        infapy.log.info("Creating User Group: " + str(userGroupJson))
 
-        url=self._v3BaseURL + "/public/core/v3/userGroups"
+        infapy.log.info("Creating new user role..")
+
+
+        try:
+            if not (isinstance(privileges, list)):
+                infapy.log.error("Privileges is not a valid list")
+                infapy.log.error("Privileges: List of IDs of the privileges to assign to the role.")
+                raise InvalidArgumentsError(str(privileges))
+        except Exception as e:
+            infapy.log.exception(e)
+            raise
+
+        userRoleJson = {
+            "name":name,
+            "description":description,
+            "privileges":privileges
+        }
+        infapy.log.info("Creating User role: " + str(userRoleJson))
+
+        
+        url=self._v3BaseURL + "/public/core/v3/roles"
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
-        body = userGroupJson
+        body = userRoleJson
 
         infapy.log.info("get users API URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
-        infapy.log.info("Body: " + str(userGroupJson))
+        infapy.log.info("Body: " + str(userRoleJson))
 
         try:
             response = re.post(url=url, json=body, headers=headers)
@@ -109,30 +114,30 @@ class UserGroups:
                     infapy.log.error("please validate the json string and provide a valid json")
                     infapy.log.error("User Creation failed")
                     infapy.log.error(str(data))
-                    raise InvalidArgumentsError(str(userGroupJson))
+                    raise InvalidArgumentsError
             except Exception as e:
                 infapy.log.exception(e)
                 raise
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Created New User Group created Successfully")
-        infapy.log.info("createNewUserGroup completed successfully..")
+        infapy.log.info("Created New User role created Successfully")
+        infapy.log.info("createNewUserRole() completed successfully..")
     
         return data
 
-    def deleteUserGroup(self,userGroupID):
-        """The function deletes the user group in informatica cloud
+    def deleteUserrole(self,userRoleID):
+        """The function deletes the user role in informatica cloud
 
         Args:
-            userGroupID (string): User Group ID
+            userRoleID (string): User role ID
         """
-        infapy.log.info("Deleting user group with id: " + str(userGroupID))
+        infapy.log.info("Deleting user role with id: " + str(userRoleID))
 
-        url=self._v3BaseURL + "/public/core/v3/userGroups/" + str(userGroupID)
+        url=self._v3BaseURL + "/public/core/v3/roles/" + str(userRoleID)
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
 
-        infapy.log.info("Delete User Groups URL - " + url)
+        infapy.log.info("Delete User roles URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: There is no body for this request" )
 
@@ -144,9 +149,9 @@ class UserGroups:
         except Exception as e:
             infapy.log.exception(e)
             raise
-        infapy.log.info("Deleted user groupd successfully")
+        infapy.log.info("Deleted user roled successfully")
         # infapy.log.info(str(data))
-        infapy.log.info("deleteUserGroup() completed successfully..")
+        infapy.log.info("deleteUserrole() completed successfully..")
     
         return response
 
