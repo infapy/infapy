@@ -165,7 +165,7 @@ class Schedule:
 
         url=self._v3BaseURL + "/public/core/v3/schedule/" + id
         headers = {'Content-Type': "application/json", 'Accept': "application/json","INFA-SESSION-ID":self._v3SessionID}
-        infapy.log.info("createSchedule URL - " + url)
+        infapy.log.info("deleteSchedule URL - " + url)
         infapy.log.info("API Headers: " + str(headers))
         infapy.log.info("Body: " + "This API requires no body")
         # The below format is for post
