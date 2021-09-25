@@ -51,7 +51,7 @@ Next, set up credentials (in e.g. ``~/.infa/credentials``):
     infa_access_key_id = YOUR_KEY
     infa_secret_access_key = YOUR_SECRET
 
-Then, set up a default region (in e.g. ``~/.aws/config``):
+Then, set up a default region (in e.g. ``~/.infa/config``):
 
 .. code-block:: ini
 
