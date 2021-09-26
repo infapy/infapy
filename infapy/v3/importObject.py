@@ -24,6 +24,19 @@ class ImportObject:
         self._v3SessionID = v3SessionID
 
     def uploadZipToGetJobID(self,filePath=os.getcwd(),fileName="infapyExportDownloaded.zip"):
+        """Use this function to import the zip file to fetch the job id
+        This function initiates the process 
+
+        Args:
+            filePath (str, optional): Defaults to os.getcwd().
+            fileName (str, optional): Defaults to "infapyExportDownloaded.zip".
+
+        Raises:
+            InvalidArgumentsError: if invalid arguments are provided
+
+        Returns:
+            json: response after the upload zip has been initiated
+        """
         
 
         infapy.log.info("Importing the objects")
@@ -81,6 +94,19 @@ class ImportObject:
         return data
 
     def startImportByJobID(self,jobID,importBody):
+        """This function initiates the job once the
+        zip is uploaded
+
+        Args:
+            jobID (str): From response of uploadZipToGetJobID
+            importBody (dict): Read the docs for understanding the import body
+
+        Raises:
+            InvalidArgumentsError: if invalid body sent
+
+        Returns:
+            json: import job success response
+        """
 
         infapy.log.info("Starting the import job...")
         infapy.log.info("import job id: " + jobID )

@@ -75,6 +75,17 @@ class Users:
         return data
 
     def createNewUser(self,userProfileInJson):
+        """create a new user by passing the user profile as a dict
+
+        Args:
+            userProfileInJson (dict): user profile in json
+
+        Raises:
+            InvalidUserDetailsProvided: if invalid json is provided
+
+        Returns:
+            json: confirmation of user created
+        """
         infapy.log.info("Creating new user..")
         infapy.log.info("User Profile provided: " + str(userProfileInJson))
 
@@ -108,6 +119,14 @@ class Users:
         return data
 
     def deleteUser(self,userID):
+        """Use this function to delete a user
+
+        Args:
+            userID (str): user object id of user
+
+        Returns:
+            response code: 204 - success
+        """
         infapy.log.info("Deleting user id: " + str(userID))
 
         url=self._v3BaseURL + "/public/core/v3/users/" + str(userID)
@@ -128,4 +147,4 @@ class Users:
         # infapy.log.info(str(data))
         infapy.log.info("deleteUser completed successfully..")
     
-        # return data
+        return response
