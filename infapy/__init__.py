@@ -49,6 +49,14 @@ log.addHandler(NullHandler())
 
 
 def setFileLogger(name="infapy",filepath=None,level=None,formatString=None):
+    """Use this function to enable file logging
+
+    Args:
+        name (str, optional): Name of your logger. Defaults to "infapy".
+        filepath ([type], optional): The location where you want to create the file. Defaults to current working directory.
+        level ([type], optional): DEBUG/WARN/INFO/ERROR. Default is at INFO
+        formatString ([type], optional): If you want to change the formating of the logger
+    """
     filename=""
     global log
     if not formatString:
@@ -75,6 +83,13 @@ def setFileLogger(name="infapy",filepath=None,level=None,formatString=None):
     
 
 def setStreamLogger(name="infapy",level=None,formatString=None):
+    """Use this function to enable file logging
+
+    Args:
+        name (str, optional): Name of your logger. Defaults to "infapy".
+        level ([type], optional): DEBUG/WARN/INFO/ERROR. Default is at INFO
+        formatString ([type], optional): If you want to change the formating of the logger
+    """
     global log
     if not formatString:
         formatString='%(asctime)s  %(name)s  %(levelname)s: %(message)s'
